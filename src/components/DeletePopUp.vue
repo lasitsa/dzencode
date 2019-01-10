@@ -36,10 +36,12 @@ export default {
 		togglePopUp: function() {
 			this.$store.dispatch('toggleDeletePopUp');
 		},
-		deleteOrder: function(event) {
+		deleteOrder: function() {
 			this.togglePopUp()
 			let currentId = this.dataid
 			this.$store.commit('deleteOrders', currentId)
+			console.log(this.$store.state.products)
+			console.log(this.$store.state.orders)
 		}
 	}
 }

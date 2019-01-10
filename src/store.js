@@ -178,17 +178,14 @@ export default new Vuex.Store({
 			state.productsInOrder = !state.productsInOrder
 		},
 		deleteOrders (state, id) {
-			let ordersQuantity = state.orders.length;
 			let currentId = id;
 			let forState = state;
-			for (let i = 0; i < ordersQuantity; i++) {
+			for (let i = 0; i < state.orders.length; i++) {
 				if (forState.orders[i].id == currentId) {
 					forState.orders.splice(i, 1);
-					break;
 				}
 			}
-			let productsQuantity = state.products.length;
-			for (let y = 0; y < productsQuantity; y++) {
+			for (let y = 0; y < state.products.length; y++) {
 				if (forState.products[y].order == currentId) {
 					forState.products.splice(y, 1);
 				}
